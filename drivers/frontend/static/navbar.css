@@ -1,0 +1,11 @@
+.nav-link{
+    color: rgb(43, 225, 231);
+    
+}
+.navbar-brand{
+    color: rgb(30, 161, 218);
+    font-family: "Lucida Console", Courier, monospace;
+}
+nav{
+    z-index: 2;
+}
