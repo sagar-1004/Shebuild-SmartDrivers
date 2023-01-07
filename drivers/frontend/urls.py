@@ -8,4 +8,5 @@ from rest_framework.routers import DefaultRouter
 urlpatterns = [
 
     path('', views.index),
+    path("login", views.login_request, name="login"),
 ]
