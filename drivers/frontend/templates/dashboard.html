@@ -16,7 +16,7 @@
      
      
      
-      <h1>Skills</h1>
+      <h1> Complete Profile</h1>
       <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark ">
 
     <div class="container-fluid ">
@@ -41,234 +41,51 @@
       </div>
     </div>
   </nav>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.11.1/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/datetime/1.1.1/css/dataTables.dateTime.min.css">
+    
+<title></title>
 
 <div class="content">
- 
-         {% comment %} <div class="row" >
-
-          <div class="col-sm-6">
-            <div class="mb-3" style="margin: 1rem;">
-              <label for="startDate">From&nbsp&nbsp&nbsp</label>
-              <input type="text" id="startDate" name="startDate" value={{start_date}}>
-              <label for="endDate">&nbsp&nbsp&nbsp&nbsp&nbsp&nbspTo&nbsp&nbsp&nbsp</label>
-              <input type="text" id="endDate" name="endDate"value={{end_date}}>
-            </div>
-          </div>
-          <div class="col-sm-6">
-          <div class="mb-3" style="margin: 1rem;">
-            <!-- <select name="report" id="report" onchange="location = this.value;">
-              
-              <option value="../viewmrl/" selected hidden>MRL</option>
-              <option value="../viewwater/" >Water</option>
-              <option value="../viewsoil/" >Soil</option>
-              <option value="../viewmrl/" > MRL </option>
-          </select> -->
-          <label for="filterFormat" >Format&nbsp&nbsp&nbsp</label>
-            <select name="filterformat"  id="filterFormat">
-        
-                <option value={{frmat}} selected  hidden>{{frmat}}</option>
-                <option value="All">All</option>
-            <option value="soil">soil</option>
-            <option value="water">water</option>
-              <!-- <option value="PDF">PDF</option> -->
-          
-          </select>
-
-          </div>
-        </div>
-      </div> {% endcomment %}
-      {% comment %} <a href="https://docs.google.com/spreadsheets/d/1fxUXlZyfv-tJicK0tdGAgU_6fiJKDo9E7VpRGwoNfjM/edit?usp=sharing"><button style='text-align:center' type="button" class="btn btn-primary" >
-        Template
-     </button> </a> {% endcomment %}
-     
-     <div class="col-sm-6">
-              <button style='height:40px ; width:120px ;text-align:center; background-color:#0d6efd' type="button" class="btn btn-primary"style="{float: right}" data-bs-toggle="modal" data-bs-target="#exampleModal1">
-                  + Skills
-               </button>
-            </div>
-          </div>
-
-
-        <!-- Modal -->
-     <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel1">Add Elements</h5>
-              <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              
-             <form action="http://127.0.0.1:8000/api/skillview" method="post" autocomplete="off">{%csrf_token%}
-           
-               <div class="mb-6">
-                   <label for="username" class="form-label">User Name</label>
-                   <input type="text" class="form-control" id="username" name="username" value={{user.id}}>
-                 </div>
-      
-                  <div class="mb-6">
-                   <label for="skill_name" class="form-label">Skill Name</label>
-                   <input type="text" class="form-control" id="skill_name" name="skill_name" >
-                 </div>
-                 <div class="mb-6">
-                   <label for="skill_domain" class="form-label">Skill Domain</label>
-                   <input type="text" class="form-control" id="skill_domain" name="skill_domain" >
-                 </div>
-
-                 <div class="mb-6">
-                   <label for="skill_level" class="form-label">Skill Level</label>
-                   <input type="text" class="form-control" id="skill_level" name="skill_level" >
-                 </div>
-
-                 <div class="mb-6">
-                   <label for="skill_exp" class="form-label">Skill Experience</label>
-                   <input type="text" class="form-control" id="skill_exp" name="skill_exp" >
-                 </div>
-      
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                  <input   class="btn btn-primary" style="background-color:#0d6efd"type="submit" value="Submit">
-                </div>
-               
-             </form>
-              
-            </div>
-           
-          </div>
-        </div>
-      </div>
-
-
-
-      
     
-         <div class="block">
-            <div class="block-header block-header-default">
-            </div>
-            <div class="block-content block-content-full">
-                <!-- DataTables functionality is initialized with .js-dataTable-full class in js/pages/be_tables_datatables.min.js which was auto compiled from _es6/pages/be_tables_datatables.js -->
-        <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
-        <div class="row">
-        <div class="col-sm-12">
-          <div class="dataTables_scroll">
-            <div class="dataTables_scrollHead" style="overflow: hidden; position: relative; border: 0px; width: 100%">
-              <div class="dataTables_scrollHeadInner" style="box-sizing: border-box; width: 100%; padding-right: 0px">
-              <table class="table table-bordered table-striped table-vcenter js-dataTable-full dataTable no-footer" role="grid" style="margin-left: 0px; width: 100%"id="myTable">
-                  <thead>
-                    <tr role="row">
-                      <th
-                        class="text-center "
-                        
-                        tabindex="0"
-                        aria-controls="DataTables_Table_0"
-                        rowspan="1"
-                        colspan="1"
-                        aria-sort="descending"
-                        aria-label=": activate to sort column ascending"
-                      >Name</th>
-                      <th
-                      class="text-center "
-                      style="width: 102.844px"
-                      tabindex="0"
-                      aria-controls="DataTables_Table_0"
-                      rowspan="1"
-                      colspan="1"
-                      aria-label="Actions: activate to sort column ascending"
-                    >
-                      Domain
-                    </th>
-                      <th
-        
-                        class="text-center"
-                        tabindex="0"
-                        aria-controls="DataTables_Table_0"
-                        rowspan="1"
-                        colspan="1"
-                        aria-label="Employee Code: activate to sort column ascending"
-                      >
-                      Experience
-                      </th>
-                      <th
-                        class="text-center "
-                       
-                        tabindex="0"
-                        aria-controls="DataTables_Table_0"
-                        rowspan="1"
-                        colspan="1"
-                        aria-label="Actions: activate to sort column ascending"
-                      >
-                      Level
-                      </th>
-                      <th
-                      class="text-center "
-                     
-                      tabindex="0"
-                      aria-controls="DataTables_Table_0"
-                      rowspan="1"
-                      colspan="1"
-                      aria-label="Actions: activate to sort column ascending"
-                    >
-                    Actions
-                    </th>
-        
-                      {% comment %}  {% endcomment %}
-        
-        
-                    </tr>
-                </thead>
-        
-                <tbody>
-                  {%for b in b %}
-                  <tr>
-                    <td class=" text-center">{{b.skill_name}}  </td>
-                    <td class=" text-center">{{b.skill_domain}}  </td>
-                    <td class=" text-center">{{b.skill_exp}}  </td>
-                    <td class=" text-center">{{b.skill_level}}  </td>
-                    
-                    <td class="d-sm-table-cell text-center">
-                      <a class = "btn btn-sm btn-secondary" data-toggle="tooltip" title="Delete Container Movement">
-
-                        <form action="http://127.0.0.1:8000/viewoneskill/"method="POST">
-                        {% csrf_token %}
-                        <input type="hidden" name="id"value="{{b.skill_id}}">
-                        <input type="hidden" name="username"value="{{b.username}}">
-                        <button type="submit"><i class="fas fa-pencil-alt"></i></button>
-                      </form> 
-                     
-                    </a>
-                  
-                   
-                  <a
-                    href="/delete/{{b.skill_id }}"
-                    class = "btn btn-sm btn-secondary"
-                    data-toggle="tooltip"
-                    title="Delete Container Movement"
-                  >
-                    <i class="fas fa-trash-alt"></i>
-                  </a>
-                </div></td>
-        
-                    
-                  </tr>
-                  {%endfor%}
-                
-        <tbody> 
-                    
-        
-        
-        
-          </div></div>
-        
-             
-        
-        
-        
-        
+<form action="http://127.0.0.1:8000/api/hospitalview" method="post" autocomplete="off">
+ 
+  {%csrf_token%}
+    <input name="username" type="hidden" value={{user.id}}>
+    <div class="mb-6">
+    <label for="name" class="form-label">Name</label>
+    <input type="text" class="form-control" id="name" name="name">
     </div>
 
+       <div class="mb-6">
+                   <label for="longitude" class="form-label">Longitude</label>
+                   <input type="text" class="form-control" id="longitude" name="longitude" >
+                 </div>
 
+      <div class="mb-6">
+                   <label for="lattitude" class="form-label">Lattitude</label>
+                   <input type="text" class="form-control" id="lattitude" name="lattitude" >
+                 </div>
+
+       <div class="mb-6">
+                   <label for="address" class="form-label">Address</label>
+                   <input type="text" class="form-control" id="address" name="address" >
+        </div>
+        <input name="ICU_bed" type="hidden" value=0>
+        <input name="bed" type="hidden" value=0>
+        <input name="ventilator" type="hidden" value=0>
+        <input name="dialysis" type="hidden" value=0>
+        <input name="Anesthesia_machine" type="hidden" value=0>
+     
+
+       <button type="button" class="btn btn-secondary" >Cancel</button>
+       <a href="../dashboard/"><input   class="btn btn-primary" style="background-color:#0d6efd"type="submit" value="Save"></a>
+
+    
+  </form>
+
+</div>
+  
  
 
 

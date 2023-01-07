@@ -30,13 +30,12 @@ def viewdashboard(request):
     end_date = end_date.strftime("%Y-%m-%d")
     start_date = datetime.date.today() - relativedelta(months=1)
     start_date = start_date.strftime("%Y-%m-%d")
+    y= str(request.user.id)
+    p = requests.get('http://127.0.0.1:8000/api/hospitalview/'+y)
+    q = p.json()
+    print(q)
 
-    # p = requests.get('http://127.0.0.1:8000/api/skillview/1')
-    # q = p.json()
-    # print(q)
-
-    # print(q)
-    return render(request, 'dashboard.html', { 'frmat': "All", 'end_date': end_date, 'start_date': start_date})
+    return render(request, 'dashboard.html', {'b': q ,'frmat': "All", 'end_date': end_date, 'start_date': start_date})
 
 
 def login_request(request):
@@ -70,3 +69,9 @@ def register_request(request):
 		messages.error(request, "Unsuccessful registration. Invalid information.")
 	form = NewUserForm()
 	return render(request, 'signup.html', context={"register_form": form})
+
+
+def logout_request(request):
+	logout(request)
+	messages.info(request, "You have successfully logged out.")
+	return redirect('/index')
