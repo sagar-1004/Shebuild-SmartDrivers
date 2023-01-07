@@ -1,0 +1,63 @@
+{% extends './base.html' %} 
+{% load static %}
+
+
+
+
+      {% block content %}
+      <link rel="stylesheet" href="https://cdn.datatables.net/1.11.1/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/datetime/1.1.1/css/dataTables.dateTime.min.css">
+    {%for b in b %}
+<title>{{b.skill_name}}</title>
+
+<div class="content">
+    
+<form action="http://127.0.0.1:8000/putequip/" method="POST" autocomplete="off">{%csrf_token%}
+    <input name="id" type="hidden" value={{b.id}}>
+    <input name="username" type="hidden" value={{b.username}}>
+    <input name="name" type="hidden" value={{b.name}}>
+    <input name="longitude" type="hidden" value={{b.longitude}}>
+    <input name="lattitude" type="hidden" value={{b.lattitude}}>
+    <input name="address" type="hidden" value={{b.address}}>
+
+
+    <div class="mb-6">
+    <label for="ICU_bed" class="form-label">ICU Bed</label>
+    <input type="text" class="form-control" id="ICU_bed" name="ICU_bed" value={{b.ICU_bed}} >
+    </div>
+
+       <div class="mb-6">
+                   <label for="bed" class="form-label">Bed</label>
+                   <input type="text" class="form-control" id="bed" name="bed" value={{b.bed}}>
+                 </div>
+
+      <div class="mb-6">
+                   <label for="ventilator" class="form-label">Ventilator</label>
+                   <input type="text" class="form-control" id="ventilator" name="ventilator" value={{b.ventilator}}>
+                 </div>
+
+       <div class="mb-6">
+                   <label for="dialysis" class="form-label">Dialysis</label>
+                   <input type="text" class="form-control" id="dialysis" name="dialysis" value={{b.dialysis}}>
+        </div>
+
+        <div class="mb-6">
+                   <label for="Anesthesia_machine" class="form-label">Dialysis</label>
+                   <input type="text" class="form-control" id="Anesthesia_machine" name="Anesthesia_machine" value={{b.Anesthesia_machine}}>
+        </div>
+
+    
+
+     
+     
+
+       <button type="button" class="btn btn-secondary" >Cancel</button>
+       <a href="../viewequip/"><input   class="btn btn-primary" style="background-color:#0d6efd"type="submit" value="Make Changes"></a>
+
+    
+  </form>
+
+</div>
+  {%endfor%}
+
+{% endblock content %}

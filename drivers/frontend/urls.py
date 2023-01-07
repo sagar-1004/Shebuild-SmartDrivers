@@ -10,6 +10,8 @@ urlpatterns = [
     path('', views.index),
     path("index", views.index, name="index"),
     path('viewdashboard', views.viewdashboard, name="viewdashboard"),
+    path('putequip/', views.putequip, name="putequip"),
+    path('viewequip', views.viewequip, name="viewequip"),
     path("login", views.login_request, name="login"),
     path("register", views.register_request, name="register"),
     path("logout", views.logout_request, name="logout"),

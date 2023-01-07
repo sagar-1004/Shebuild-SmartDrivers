@@ -35,7 +35,7 @@ class Hospitalview(APIView):
 
     def put(self, request, pk):
         id = pk
-        queryset = Hospital.objects.get(skill_id=id)
+        queryset = Hospital.objects.get(id=id)
         serializer_class = hospitalSerializer(queryset, data=request.data)
         if serializer_class.is_valid():
             serializer_class.save()
