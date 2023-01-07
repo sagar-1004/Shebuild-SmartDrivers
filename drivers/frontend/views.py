@@ -25,6 +25,19 @@ from django.contrib.auth.models import User
 def index(request):
     return render(request, 'index.html')
 
+def viewdashboard(request):
+    end_date = datetime.date.today()
+    end_date = end_date.strftime("%Y-%m-%d")
+    start_date = datetime.date.today() - relativedelta(months=1)
+    start_date = start_date.strftime("%Y-%m-%d")
+
+    # p = requests.get('http://127.0.0.1:8000/api/skillview/1')
+    # q = p.json()
+    # print(q)
+
+    # print(q)
+    return render(request, 'dashboard.html', { 'frmat': "All", 'end_date': end_date, 'start_date': start_date})
+
 
 def login_request(request):
 	if request.method == "POST":
@@ -37,7 +50,7 @@ def login_request(request):
 				login(request, user)
 				id = user.id
 
-				return redirect('/viewskill')
+				return redirect('/viewdashboard')
 			else:
 				messages.error(request, "Invalid username or password.")
 		else:

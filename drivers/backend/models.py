@@ -1,9 +1,12 @@
 from django.db import models
 import uuid
+from django.contrib.auth.models import User
+
 
 
 class Hospital(models.Model):
     id = models.UUIDField(primary_key=True, editable=False, default=uuid.uuid4)
+    username = models.ForeignKey( User, null=False, blank=False, on_delete=models.CASCADE)
     name = models.CharField(max_length=255)
     longitude = models.DecimalField(decimal_places=8,max_digits=12)
     lattitude = models.DecimalField(decimal_places=8,max_digits=12)
