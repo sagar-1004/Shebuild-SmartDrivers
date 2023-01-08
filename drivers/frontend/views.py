@@ -32,7 +32,7 @@ def viewdashboard(request):
     start_date = datetime.date.today() - relativedelta(months=1)
     start_date = start_date.strftime("%Y-%m-%d")
     y= str(request.user.id)
-    p = requests.get('http://127.0.0.1:8000/api/hospitalview/'+y)
+    p = requests.get('http://192.168.1.27:8000/api/hospitalview/'+y)
     q = p.json()
     print(q)
 
@@ -85,7 +85,7 @@ def viewequip(request):
     start_date = datetime.date.today() - relativedelta(months=1)
     start_date = start_date.strftime("%Y-%m-%d")
     y = str(request.user.id)
-    p = requests.get('http://127.0.0.1:8000/api/hospitalview/'+y)
+    p = requests.get('http://192.168.1.27:8000/api/hospitalview/'+y)
     q = p.json()
     print(q)
 
@@ -120,9 +120,9 @@ def putequip(request):
             "Anesthesia_machine" : Anesthesia_machine,
 
         }
-    p = requests.put("http://127.0.0.1:8000/api/hospitalview/"+id, context)
+    p = requests.put("http://192.168.1.27:8000/api/hospitalview/"+id, context)
     print (p)
-    return redirect("http://127.0.0.1:8000/viewequip")
+    return redirect("http://192.168.1.27:8000/viewequip")
 
 
 def viewnotification(request):
@@ -131,7 +131,7 @@ def viewnotification(request):
     start_date = datetime.date.today() - relativedelta(months=1)
     start_date = start_date.strftime("%Y-%m-%d")
 
-    p = requests.get('http://127.0.0.1:8000/api/notificationview')
+    p = requests.get('http://192.168.1.27:8000/api/notificationview')
     q = p.json()
     print(q)
 
