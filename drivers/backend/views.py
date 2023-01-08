@@ -29,7 +29,14 @@ class Hospitalview(APIView):
             serializer1_class = hospitalSerializer(queryset, many=True)
             # print(queryset)
             return Response(serializer1_class.data)
-        queryset = Hospital.objects.all()
+        
+        bed_count = request.GET.get('bed')
+        ICU_bed_count = request.GET.get('ICU_bed')
+        ventilator_count  = request.GET.get('ventilator')
+        dialysis_count = request.GET.get('dialysis')
+        Anesthesia_count = request.GET.get('anasthesia')
+        
+        queryset = Hospital.objects.filter(bed__gte=bed_count,ICU_bed__gte=ICU_bed_count,ventilator__gte=ventilator_count,dialysis__gte=dialysis_count,Anesthesia_machine__gte=Anesthesia_count)
         serializer_class = hospitalSerializer(queryset, many=True)
         return Response(serializer_class.data)
 
