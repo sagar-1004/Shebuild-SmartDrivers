@@ -125,3 +125,15 @@ def putequip(request):
     return redirect("http://127.0.0.1:8000/viewequip")
 
 
+def viewnotification(request):
+    end_date = datetime.date.today()
+    end_date = end_date.strftime("%Y-%m-%d")
+    start_date = datetime.date.today() - relativedelta(months=1)
+    start_date = start_date.strftime("%Y-%m-%d")
+
+    p = requests.get('http://127.0.0.1:8000/api/notificationview')
+    q = p.json()
+    print(q)
+
+    # print(q)
+    return render(request, 'notification.html', {'b': q, 'frmat': "All", 'end_date': end_date, 'start_date': start_date})

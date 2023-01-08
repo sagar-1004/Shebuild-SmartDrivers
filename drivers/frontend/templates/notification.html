@@ -1,0 +1,270 @@
+{% extends './base.html' %} 
+{% load static %}
+
+
+
+
+      {% block content %}
+      <link rel="stylesheet" href="https://cdn.datatables.net/1.11.1/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/datetime/1.1.1/css/dataTables.dateTime.min.css">
+    
+ 
+      <!-- <link rel="stylesheet" href="{% static 'css/index.css' %}"> -->
+
+      <title>Reports</title>
+   
+     
+     
+     
+      <h1>Notification</h1>
+      <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark ">
+
+    <div class="container-fluid ">
+      <a class="navbar-brand " style ="margin-left:150px" href="#" >Hospital Management Portal</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation" >
+        <span class="navbar-toggler-icon">
+            
+        </span>
+        
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 position-absolute middle-0 end-0">
+          
+            <li class="nav-item px-2">
+                <h6 class="nav-link" >Welcome, {{user.username}}</h6>
+            </li>
+            <li class="nav-item px-2">
+                <a class="nav-link" href="../logout">Log Out</a>
+            </li>
+          </ul>
+        </span>
+      </div>
+    </div>
+  </nav>
+
+<div class="content">
+ 
+         {% comment %} <div class="row" >
+
+          <div class="col-sm-6">
+            <div class="mb-3" style="margin: 1rem;">
+              <label for="startDate">From&nbsp&nbsp&nbsp</label>
+              <input type="text" id="startDate" name="startDate" value={{start_date}}>
+              <label for="endDate">&nbsp&nbsp&nbsp&nbsp&nbsp&nbspTo&nbsp&nbsp&nbsp</label>
+              <input type="text" id="endDate" name="endDate"value={{end_date}}>
+            </div>
+          </div>
+          <div class="col-sm-6">
+          <div class="mb-3" style="margin: 1rem;">
+            <!-- <select name="report" id="report" onchange="location = this.value;">
+              
+              <option value="../viewmrl/" selected hidden>MRL</option>
+              <option value="../viewwater/" >Water</option>
+              <option value="../viewsoil/" >Soil</option>
+              <option value="../viewmrl/" > MRL </option>
+          </select> -->
+          <label for="filterFormat" >Format&nbsp&nbsp&nbsp</label>
+            <select name="filterformat"  id="filterFormat">
+        
+                <option value={{frmat}} selected  hidden>{{frmat}}</option>
+                <option value="All">All</option>
+            <option value="soil">soil</option>
+            <option value="water">water</option>
+              <!-- <option value="PDF">PDF</option> -->
+          
+          </select>
+
+          </div>
+        </div>
+      </div> {% endcomment %}
+      {% comment %} <a href="https://docs.google.com/spreadsheets/d/1fxUXlZyfv-tJicK0tdGAgU_6fiJKDo9E7VpRGwoNfjM/edit?usp=sharing"><button style='text-align:center' type="button" class="btn btn-primary" >
+        Template
+     </button> </a> {% endcomment %}
+     
+     
+      
+    
+         <div class="block">
+            <div class="block-header block-header-default">
+            </div>
+            <div class="block-content block-content-full">
+                <!-- DataTables functionality is initialized with .js-dataTable-full class in js/pages/be_tables_datatables.min.js which was auto compiled from _es6/pages/be_tables_datatables.js -->
+        <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
+        <div class="row">
+        <div class="col-sm-12">
+          <div class="dataTables_scroll">
+            <div class="dataTables_scrollHead" style="overflow: hidden; position: relative; border: 0px; width: 100%">
+              <div class="dataTables_scrollHeadInner" style="box-sizing: border-box; width: 100%; padding-right: 0px">
+              <table class="table table-bordered table-striped table-vcenter js-dataTable-full dataTable no-footer" role="grid" style="margin-left: 0px; width: 100%"id="myTable">
+                  <thead>
+                    <tr role="row">
+                      <th
+                        class="text-center "
+                        
+                        tabindex="0"
+                        aria-controls="DataTables_Table_0"
+                        rowspan="1"
+                        colspan="1"
+                        aria-sort="descending"
+                        aria-label=": activate to sort column ascending"
+                      >Gender</th>
+                      <th
+                      class="text-center "
+                      style="width: 102.844px"
+                      tabindex="0"
+                      aria-controls="DataTables_Table_0"
+                      rowspan="1"
+                      colspan="1"
+                      aria-label="Actions: activate to sort column ascending"
+                    >
+                      Bloodgroup
+                    </th>
+                      <th
+        
+                        class="text-center"
+                        tabindex="0"
+                        aria-controls="DataTables_Table_0"
+                        rowspan="1"
+                        colspan="1"
+                        aria-label="Employee Code: activate to sort column ascending"
+                      >
+                      Diabetic
+                      </th>
+                      <th
+                        class="text-center "
+                       
+                        tabindex="0"
+                        aria-controls="DataTables_Table_0"
+                        rowspan="1"
+                        colspan="1"
+                        aria-label="Actions: activate to sort column ascending"
+                      >
+                      Blood Pressure
+                      </th>
+                      <th
+                      class="text-center "
+                     
+                      tabindex="0"
+                      aria-controls="DataTables_Table_0"
+                      rowspan="1"
+                      colspan="1"
+                      aria-label="Actions: activate to sort column ascending"
+                    >
+                    
+                </thead>
+        
+                <tbody>
+                  {%for b in b %}
+                  <tr>
+                    <td class=" text-center">{{b.gender}}  </td>
+                    <td class=" text-center">{{b.bloodgroup}}  </td>
+                    <td class=" text-center">{{b.diabetic}}  </td>
+                    <td class=" text-center">{{b.blood_pressure_patient}}  </td>
+                    
+                    
+        
+                    
+                  </tr>
+                  {%endfor%}
+                
+        <tbody> 
+                    
+        
+        
+        
+          </div></div>
+        
+             
+        
+        
+        
+        
+    </div>
+
+
+ 
+
+
+
+
+    <!-- JavaScript Bundle with Popper -->
+    
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+<script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script>
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.11.1/js/jquery.dataTables.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+<script src="https://cdn.datatables.net/datetime/1.1.1/js/dataTables.dateTime.min.js"></script>
+
+<script>
+
+ 
+var ft;
+// Custom filtering function which will search data in column four between two values
+
+
+
+
+$(document).ready(function() {
+  // Create date inputs
+  $.fn.dataTable.ext.search.push(
+    function( settings, data, dataIndex ) {
+
+        var f =filterFormat.value;
+       console.log(data)
+        ft=data[2];
+        console.log(ft)
+        console.log(f)
+        if(ft==f||f=="All")return true;
+              return false; 
+    }
+);
+  minDate = new DateTime($('#startDate'), {
+    format: 'YYYY-MM-DD'
+    
+});
+
+maxDate = new DateTime($('#endDate'), {
+    format: 'YYYY-MM-DD'
+});
+
+  
+  var table = $('#myTable').DataTable({
+   paging: true,
+   ordering: true,
+   info: true
+});
+
+
+// Refilter the table
+//$('#example') 
+
+$('#filterFormat,#startDate,#endDate').on('change', function () {
+
+    table.draw();
+});
+}); 
+ 
+function handleSelect(elm)
+  {
+     window.location = elm.value+"/";
+     console.log(elm.value+"/");
+  }
+</script>
+  
+<script src="{% static 'js/scripts.js' %}"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+
+ <script src="{% static 'js/datatables-simple-demo.js' %}"></script>
+ <script>
+   window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')
+ </script>
+ <script src="{% static 'js/plugins.js' %}"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
+ <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+ <script src="{% static 'js/vendor/modernizr-2.8.3.min.js' %}"></script>
+</body>
+
+</html>
+{% endblock content %}

@@ -11,6 +11,31 @@
 <title>{{b.skill_name}}</title>
 
 <div class="content">
+  <h1>Equipments</h1>
+   <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark ">
+
+    <div class="container-fluid ">
+      <a class="navbar-brand " style ="margin-left:150px" href="#" >Hospital Management Portal</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation" >
+        <span class="navbar-toggler-icon">
+            
+        </span>
+        
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 position-absolute middle-0 end-0">
+          
+            <li class="nav-item px-2">
+                <h6 class="nav-link" >Welcome, {{user.username}}</h6>
+            </li>
+            <li class="nav-item px-2">
+                <a class="nav-link" href="../logout">Log Out</a>
+            </li>
+          </ul>
+        </span>
+      </div>
+    </div>
+  </nav>
     
 <form action="http://127.0.0.1:8000/putequip/" method="POST" autocomplete="off">{%csrf_token%}
     <input name="id" type="hidden" value={{b.id}}>
@@ -42,7 +67,7 @@
         </div>
 
         <div class="mb-6">
-                   <label for="Anesthesia_machine" class="form-label">Dialysis</label>
+                   <label for="Anesthesia_machine" class="form-label">Anesthesia machine</label>
                    <input type="text" class="form-control" id="Anesthesia_machine" name="Anesthesia_machine" value={{b.Anesthesia_machine}}>
         </div>
 
