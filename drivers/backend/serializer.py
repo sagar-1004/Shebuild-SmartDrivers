@@ -5,3 +5,9 @@ class hospitalSerializer(serializers.ModelSerializer):
     class Meta:
         model=Hospital
         fields='__all__'
+
+
+class notificationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=Notification
+        fields='__all__'        

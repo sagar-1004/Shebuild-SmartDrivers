@@ -1,11 +1,12 @@
-from django.shortcuts import render, HttpResponse, redirect
+from django.shortcuts import render, redirect
 from dateutil.relativedelta import relativedelta
 import datetime
 from backend.models import *
 import requests
 from django.views.decorators.csrf import csrf_exempt
 from django.core.serializers import json
-from django.http import JsonResponse
+# from django import Response
+from rest_framework.response import Response
 from django.core import serializers
 import json
 from django.contrib.auth import get_user_model
